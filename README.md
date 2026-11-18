@@ -1,7 +1,8 @@
 # Классификация типа рака по факторам риска
 
 Учебный проект по ML: предсказание типа рака (Breast, Colon, Lung, Prostate, Skin) по факторам образа жизни и медицинским показателям.
-*English: multiclass classification of 5 cancer types on a tabular Kaggle dataset (logistic regression, KNN, random forest, XGBoost).*
+
+*multiclass classification of 5 cancer types on a tabular Kaggle dataset (logistic regression, KNN, random forest, XGBoost).*
 
 ## Данные
 [Cancer Risk Factors Dataset](https://www.kaggle.com/datasets/tarekmasryo/cancer-risk-factors-dataset/data) (Kaggle), 2000 пациентов, 21 столбец, без пропусков и дубликатов.
