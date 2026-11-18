@@ -1,2 +1,31 @@
-# cancer-type-classification
-Multiclass classification of 5 cancer types on a synthetic Kaggle dataset: LogReg, KNN, Random Forest, XGBoost, SHAP
+# Классификация типа рака по факторам риска
+
+Учебный проект по ML: предсказание типа рака (Breast, Colon, Lung, Prostate, Skin) по факторам образа жизни и медицинским показателям.
+*English: multiclass classification of 5 cancer types on a tabular Kaggle dataset (logistic regression, KNN, random forest, XGBoost).*
+
+## Данные
+[Cancer Risk Factors Dataset](https://www.kaggle.com/datasets/tarekmasryo/cancer-risk-factors-dataset/data) (Kaggle), 2000 пациентов, 21 столбец, без пропусков и дубликатов.
+Датасет синтетический (по описанию автора, все записи смоделированы и не соответствуют реальным людям), поэтому выводы о реальных причинах рака делать нельзя. Файл в репозиторий не включён. Ноутбук выполнялся в Google Colab.
+
+## Что сделано
+- EDA: распределения, корреляции, баланс классов
+- Предобработка: удалены ID и рассчитанные индексы риска (чтобы не было утечки), Label Encoding, стратифицированное разбиение 75/25, StandardScaler
+- Модели: логистическая регрессия, KNN, случайный лес, XGBoost
+- Метрики: accuracy, precision, recall, F1, ROC-AUC, матрицы ошибок
+- Подбор гиперпараметров (GridSearchCV) для случайного леса и XGBoost
+- Интерпретация: feature importance, SHAP
+
+## Результаты (тест, 500 пациентов)
+
+| Модель | Accuracy | F1 | ROC-AUC |
+|---|---|---|---|
+| Logistic Regression | 0.732 | 0.731 | 0.941 |
+| KNN | 0.608 | 0.593 | 0.847 |
+| Random Forest | 0.768 | 0.765 | 0.944 |
+| XGBoost | 0.766 | 0.765 | 0.952 |
+
+Лучшие модели — случайный лес и XGBoost (разница между ними в пределах погрешности). Хуже всего распознаётся рак кожи.
+Подбор гиперпараметров заметного улучшения не дал.
+
+## Замечание
+Признак пола получает высокую важность из-за структуры данных (по описанию датасета, рак простаты встречается только при Gender = 1, а рак груди у мужчин очень редок), а не как причина заболевания.
